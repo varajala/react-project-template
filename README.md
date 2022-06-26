@@ -1,6 +1,8 @@
 # react-project-template
 
 Script for creating a React project with Typescript and Webpack.
+See [basarat/typescript-react](https://github.com/basarat/typescript-react/tree/master/01%20bootstrap)
+for more info, this script will create similiar configuration.
 
 ## Use
 
