@@ -29,7 +29,8 @@ This will create a new directory with the project name and create the following 
 ```
 
 Navigate into the project directory and install all required packages with `npm install`.
-Then build the app with `webpack` and start the dev server with `npm start`.
+Then build the app with `npm run build` and start the dev server with `npm start`.
+The dev server is configured to compile and reload all dependencies of index.tsx on save.
 
 Change the package information in `package.json` if needed.
 

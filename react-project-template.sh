@@ -19,8 +19,8 @@ cat << EOF > package.json
   "description": "React project template with Typescript and Webpack",
   "main": "src/index.tsx",
   "scripts": {
-    "build": "webpack -p",
-    "start": "webpack-dev-server --devtool eval --config ./webpack.config.js"
+    "build": "webpack",
+    "start": "webpack serve --open"
   },
   "author": "$(git config user.name)",
   "dependencies": {
@@ -55,12 +55,22 @@ cat << EOF > tsconfig.json
 EOF
 
 cat << EOF > webpack.config.js
+const path = require('path');
+
 module.exports = {
   entry: './src/index.tsx',
   mode: 'development',
   output: {
-    path: __dirname + '/public/build',
-    filename: 'app.js'
+    path: path.resolve(__dirname + '/public/build'),
+    filename: 'app.bundle.js'
+  },
+  devServer: {
+    host: '127.0.0.1',
+    port: 8080,
+    devMiddleware: {
+      publicPath: '/public',
+      writeToDisk: true
+    }
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js']
@@ -85,7 +95,7 @@ cat << EOF > public/index.html
 
     <body>
         <div id="root"></div>
-        <script src="./build/app.js"></script>
+        <script src="./build/app.bundle.js"></script>
     </body>
 </html>
 EOF
