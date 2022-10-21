@@ -9,7 +9,6 @@ git init
 cat << EOF > .gitignore
 node_modules
 public/build
-package-lock.json
 EOF
 
 cat << EOF > package.json
